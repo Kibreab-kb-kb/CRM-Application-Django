@@ -7,8 +7,5 @@ def home(request):
   return render(request,'webapps/index.html')
 
 
-def base(request):
-    return render(request,'webapps/base.html')
-
 
 
