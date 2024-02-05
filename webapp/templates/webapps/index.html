@@ -1,7 +1,30 @@
-{% extends "webapps/base.html" %}
+{% extends 'webapps/base.html' %}
 
 {% block content %}
-<h1>Hello world</h1>
-<p> This is the home page</p>
+
+
+<body>
+    <br>
+    <br>
+
+
+    <div class ="text-center">
+        <h3>Customer Relationship Management Project </h3>
+
+        <br>
+
+        <h5> Used to track records Effectively</h5>
+
+        <hr>
+
+        <br>
+
+        <a class="btn btn-primary type="button" href="{% url 'home' %}">Create Account</a>
+     </div>
+</body>
+
+
+
+
 
 {% endblock %}
