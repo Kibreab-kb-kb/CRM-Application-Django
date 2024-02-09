@@ -23,6 +23,7 @@ def register(request):
     
 
     context={'form':form}
+    return render(request,'webapps/register.html',context=context)
        
 
 
