@@ -1,28 +1,56 @@
-<!-- {% extends 'webapps/base.html' %}
+{% extends 'webapps/base.html' %}
+
+{% load crispy_forms_tags %}
+
 
 {% block content %}
-<body>
 
-  <div class="container bg-light shadow-md">
-    <form method="POST" autocomplete="off" action="{% url 'login' %}">
-      {% csrf_token %}
-      <div class="mb-3">
-        <label for="id_username" class="form-label">Username:</label>
-        {{ form.username }}
-        <!-- Display form errors for the username field -->
-        {{ form.username.errors }}
-      </div>
-      <div class="mb-3">
-        <label for="id_password" class="form-label">Password:</label>
-        {{ form.password }}
-        <!-- Display form errors for the password field -->
-        {{ form.password.errors }}
-      </div>
-      <button type="submit" class="btn btn-primary w-100 btn-block p-2">
-        Login
-      </button>
-    </form>
-  </div>
+    <body>
 
-</body>
-{% endblock %} -->
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Login to your account </h3>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.username|as_crispy_field}}
+
+                <br>
+
+                {{form.password|as_crispy_field}}
+
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Login &nbsp; <i class="fa fa-key" aria-hidden="true"></i> </button>
+
+
+            </form>
+
+            <br>
+
+            <div class="text-center">
+
+                <p> Don't have an account? </p> <a href="{% url 'register' %}"> Register </a>
+
+            </div>
+
+
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}
+
+
+
+
+
+
+
