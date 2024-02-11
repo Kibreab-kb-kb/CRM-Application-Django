@@ -1,21 +1,21 @@
 from django.shortcuts import render,redirect
 from .forms  import CreateUserForm,LoginForm
 from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 
 
 
-#Homepage
+#Home page
 
 def home(request):
     # return HttpResponse("Hello, Django!")
   return render(request,'webapps/index.html')
 
 
-#register
+#register page
 
 def register(request):
     form = CreateUserForm()
@@ -34,7 +34,7 @@ def register(request):
 
 
 
-#login
+#login page
 
 def login(request):
    form=LoginForm()
@@ -48,7 +48,7 @@ def login(request):
          user=authenticate(request,username=username,password=password)
       
          if user is not None:
-          auth.login(request,user)
+          auth_login(request,user)
           return redirect('dashboard')
       
 
@@ -60,15 +60,15 @@ def login(request):
 
 
 
-#logout
+#logout page
 
 def logout(request):
-   auth.logout(request)
-   redirect('login')
+   auth_logout(request)
+   return redirect('login')
 
 
 
-#dashboard
+#dashboard page
   
 @login_required(login_url='login')
 def dashboard(request):
