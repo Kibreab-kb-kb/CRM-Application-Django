@@ -3,6 +3,7 @@ from django.db import models
 class Record(models.Model):
 
     creation_date=models.DateTimeField(auto_now_add=True)
+    update_date=models.DateTimeField(auto_now=True)
     first_name=models.CharField(max_length=100)
     last_name=models.CharField(max_length=100)
     email=models.CharField(max_length=255)
@@ -11,6 +12,7 @@ class Record(models.Model):
     city=models.CharField(max_length=200)
     province=models.CharField(max_length=200)
     country=models.CharField(max_length=200)
+    
 
 
     def __str__(self):
