@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 
-
-
 #Home page
 
 def home(request):
@@ -78,15 +76,5 @@ def dashboard(request):
 
 
    
- 
-
-
-
-
-
-
-
- 
-
 
 
