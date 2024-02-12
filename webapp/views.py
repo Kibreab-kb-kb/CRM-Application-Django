@@ -4,6 +4,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate,logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import Record
 
 
 #Home page
@@ -70,8 +71,10 @@ def logout(request):
   
 @login_required(login_url='login')
 def dashboard(request):
+   records=Record.objects.all()
+   context={'records':records}
    
-   return render(request,'webapps/dashboard.html')
+   return render(request,'webapps/dashboard.html',context=context)
        
 
 
