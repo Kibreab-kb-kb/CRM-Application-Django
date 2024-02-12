@@ -1,9 +1,24 @@
 {% extends 'webapps/base.html'%} {% block content %}
 
 <div class="container text-center">
-   
   <h3>Welcome to the dashboard page {{user.username}}</h3>
-  
+  <p>Here you can see all the webapps you have created</p>
+  <div class="dashboard-container"></div>
+  {% for record in records %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">user:{{record.id}}</h5>
+      <h5 class="card-title">Fullname:{{record.first_name}} {{record.last_name}}</h5>
+      <p class="card-text">Email:{{record.email}}</p>
+      <p class="card-text">Phone-number:{{record.phone}}</p>
+      <p class="card-text">
+        {{record.address}}, {{record.city}}, {{record.country}}
+      </p>
+      <p class="card-text">Created at: {{record.creation_date}}</p>
+      <p class="card-text">Updated at: {{record.updated_at}}</p>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
