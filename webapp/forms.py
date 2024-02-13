@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
-
+from .models import Record
 
 
 #Register /Create a user
@@ -16,3 +16,16 @@ class CreateUserForm(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=TextInput(attrs={'class':'form-control','placeholder':'Username'}))
     password = forms.CharField(widget=PasswordInput(attrs={'class':'form-control','placeholder':'Password'}))
+
+
+#Create a record
+class CreateRecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields=['first_name','last_name','email','phone','address','city','province','country']
+
+#Update a record
+class UpdateRecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields=['first_name','last_name','email','phone','address','city','province','country']         
