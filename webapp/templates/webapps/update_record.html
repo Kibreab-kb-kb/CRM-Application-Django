@@ -1,12 +1,10 @@
 {% extends 'webapps/base.html' %} {% load crispy_forms_tags %}
  {% block content%}
 
-<h1>Update Record</h1>
+<h1 class="text-center">Update Record</h1>
 <div class="container form-layout">
   <form method="POST">
-    {% csrf_token %}
-   
-    {{form.first_name|as_crispy_field}}
+    {% csrf_token %} {{form.first_name|as_crispy_field}}
 
     <br />
 
@@ -36,8 +34,7 @@
 
     {{form.country|as_crispy_field}}
 
-  <button type="submit" class="btn btn-outline-primary">Update</button>
-
+    <button type="submit" class="btn btn-outline-primary">Update</button>
   </form>
 </div>
 {% endblock %}
