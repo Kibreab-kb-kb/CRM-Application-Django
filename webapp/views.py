@@ -116,3 +116,8 @@ def single_record(request,pk):
    record=Record.objects.get(id=pk)
    context={'record':record}
    return render(request,'webapps/view.html',context=context)
+
+def delete_record(request,pk):
+   record=Record.objects.get(id=pk)
+   record.delete()
+   return redirect('dashboard')
