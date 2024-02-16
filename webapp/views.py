@@ -111,3 +111,8 @@ def update_record(request,pk):
    
 
 
+@login_required(login_url='login')
+def single_record(request,pk):
+   record=Record.objects.get(id=pk)
+   context={'record':record}
+   return render(request,'webapps/view.html',context=context)
