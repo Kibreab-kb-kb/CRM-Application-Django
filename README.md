@@ -1,2 +1,2 @@
 customer relationship management project done with django 
-we will add adtional feature in the feature
+we will add adtional feature in the future
