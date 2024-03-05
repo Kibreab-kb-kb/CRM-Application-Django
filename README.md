@@ -1,2 +1,2 @@
 customer relationship management project done with django 
-we will add adtional feature in the future like flash messages 
+we will add adtional feature in the future like flash messages for the login and logout
